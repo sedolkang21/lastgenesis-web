@@ -117,9 +117,37 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
+		<script>
+// Sharp pixels at any window size (S32b, user 2026-10-16 "화질이?"): the picture is 960×540 and
+// scaled by whole numbers inside the engine (WzDisplay). In a window that is not a whole multiple
+// (a 1617×910 browser window is 1.68×) nearest scaling made pixels one or two screen pixels wide.
+// The canvas is therefore given the next whole multiple (2×) of the window's limiting side, so the
+// engine draws crisp 2× pixels, and the browser scales that smoothly down to the window. The
+// canvas still covers the whole window (touches in the side bars reach the game), and Godot maps
+// every click and touch from the shown size to the canvas size itself. Needs
+// html/canvas_resize_policy 0 (the page sizes the canvas).
+function lgFitCanvas() {
+	const canvas = document.getElementById('canvas');
+	const ratio = window.devicePixelRatio || 1;
+	const w = window.innerWidth;
+	const h = window.innerHeight;
+	const f = Math.min((w * ratio) / 960, (h * ratio) / 540);
+	const whole = Math.max(1, Math.ceil(f - 0.001));
+	const width = Math.max(1, Math.round(w * ratio * whole / f));
+	const height = Math.max(1, Math.round(h * ratio * whole / f));
+	if (canvas.width !== width || canvas.height !== height) {
+		canvas.width = width;
+		canvas.height = height;
+	}
+	canvas.style.width = `${w}px`;
+	canvas.style.height = `${h}px`;
+}
+lgFitCanvas();
+window.addEventListener('resize', lgFitCanvas);
+		</script>
 		<script src="index.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":20953440,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":20953440,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 // The bridge (onestore.js), or nothing if it did not load: the game must start either way.
