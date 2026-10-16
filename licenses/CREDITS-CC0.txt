@@ -1,0 +1,15 @@
+WARZONE 2D — sound effect credits (CC0, public domain dedication; credit is not required, given with thanks)
+
+Recordings from OpenGameArt.org, cut, layered and levelled by topdown/tools/sfx_cc0.py:
+  Kenney (www.kenney.nl) — "Sci-Fi Sounds": explosionCrunch, lowFrequency_explosion, impactMetal,
+      laserSmall, forceField, spaceEngineLow. https://opengameart.org/content/sci-fi-sounds
+  rubberduck — "25 CC0 bang / firework SFX": shot, bang, cannon.
+      https://opengameart.org/content/25-cc0-bang-firework-sfx
+  rubberduck — "50 CC0 Sci-Fi SFX": rocket. https://opengameart.org/content/50-cc0-sci-fi-sfx
+  qubodup / independent.nu — "5 break, crunch impacts" and "16 button clicks".
+      https://opengameart.org/content/5-break-crunch-impacts  https://opengameart.org/content/16-button-clicks
+  Black Lodge Games (blacklodgegames.com) — "50 Free SciFi SoundFX": energy field, beams, warning
+      alarm, alien starship flyby. https://opengameart.org/content/50-free-scifi-soundfx-192khz-64-bit-24576kbps-wav
+  bart — "Warp Engine Engage Sound". https://opengameart.org/content/warp-engine-engage-sound
+
+Licence: Creative Commons Zero 1.0 Universal, https://creativecommons.org/publicdomain/zero/1.0/
